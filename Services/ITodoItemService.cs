@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AspNetCoreTodo.Models;
-using AspNetCoreTodo.Services;
+using ASPDotNetCoreTodo.Models;
+using ASPDotNetCoreTodo.Services;
 
-namespace AspNetCoreTodo.Services
+namespace ASPDotNetCoreTodo.Services
 {
     public interface ITodoItemService
     {

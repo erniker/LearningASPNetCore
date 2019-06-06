@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using ASPDotNetCoreTodo.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using AspNetCoreTodo.Services;
-using AspNetCoreTodo.Models;
+using ASPDotNetCoreTodo.Services;
+using ASPDotNetCoreTodo.Models;
 
 namespace ASPDotNetCoreTodo
 {

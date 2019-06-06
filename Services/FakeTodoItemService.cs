@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AspNetCoreTodo.Models;
-namespace AspNetCoreTodo.Services
+using ASPDotNetCoreTodo.Models;
+
+namespace ASPDotNetCoreTodo.Services
 {
     public class FakeTodoItemService : ITodoItemService
     {
