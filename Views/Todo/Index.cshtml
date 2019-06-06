@@ -1,7 +1,9 @@
 @model TodoViewModel
+@using Humanizer
+
 
 @{
-    ViewData["Title"] = "Manage your todo list";
+    ViewData["Title"] = "Gestiona tu lista de tareas pendientes";
 }
 
 <div class="panel panel-default todo-panel">
@@ -23,7 +25,7 @@
                 <input type="checkbox" class="done-checkbox">
             </td>
             <td>@item.Title</td>
-            <td>@item.DueAt</td>
+            <td>@item.DueAt.Humanize()</td>
         </tr>
         }
     </table>
