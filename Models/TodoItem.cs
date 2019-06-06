@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-namespace AspNetCoreTodo.Models
+
+namespace ASPDotNetCoreTodo.Models
 {
     public class TodoItem
     {
