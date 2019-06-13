@@ -5,22 +5,35 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ASPDotNetCoreTodo.Services;
 using ASPDotNetCoreTodo.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASPDotNetCoreTodo.Controllers
 {
+    [Authorize]
     public class TodoController : Controller
     {
         private readonly ITodoItemService _todoItemService;
-        public TodoController(ITodoItemService todoItemService)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public TodoController(ITodoItemService todoItemService,
+                              UserManager<ApplicationUser> userManager)
         {
             _todoItemService = todoItemService;
+            _userManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
             // Obtener las tareas desde la base de datos
             // Coloca los elemento dentro de un modelo
             // Pasa la vista al model y visualiza
-            var items = await _todoItemService.GetIncompleteItemsAsync();
+
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            //Si falta algo de información, forzamos a que el usario inicie sesión
+            if (currentUser == null) return Challenge();
+
+            var items = await _todoItemService.GetIncompleteItemsAsync(currentUser);
+           
             var model = new TodoViewModel()
             {
                 Items = items
@@ -35,7 +48,15 @@ namespace ASPDotNetCoreTodo.Controllers
             {
                 return RedirectToAction("Index");
             }
-            var successful = await _todoItemService.AddItemAsync(newItem);
+
+            //Obtenemos el Usario actual
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            //Si falta algo de información, forzamos a que el usario inicie sesión
+            if (currentUser == null) return Challenge();           
+            
+            var successful = await _todoItemService.AddItemAsync(newItem, currentUser);
+
             if (!successful)
             {
                 return BadRequest("Could not add item.");
@@ -50,7 +71,15 @@ namespace ASPDotNetCoreTodo.Controllers
             {
                 return RedirectToAction("Index");
             }
-            var successful = await _todoItemService.MarkDoneAsync(id);
+    
+            //Obtenemos el Usario actual
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            //Si falta algo de información, forzamos a que el usario inicie sesión
+            if (currentUser == null) return Challenge();          
+
+            var successful = await _todoItemService.MarkDoneAsync(id, currentUser);
+
             if (!successful)
             {
                 return BadRequest("Could not mark item as done.");
@@ -58,5 +87,4 @@ namespace ASPDotNetCoreTodo.Controllers
             return RedirectToAction("Index");
         }
     }
-
 }
