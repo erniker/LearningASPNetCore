@@ -32,7 +32,8 @@ namespace ASPDotNetCoreTodo.Controllers
             //Si falta algo de información, forzamos a que el usario inicie sesión
             if (currentUser == null) return Challenge();
 
-            var items = await _todoItemService.GetIncompleteItemsAsync(currentUser);
+            var items = await _todoItemService
+                    .GetIncompleteItemsAsync(currentUser);
            
             var model = new TodoViewModel()
             {
@@ -55,7 +56,8 @@ namespace ASPDotNetCoreTodo.Controllers
             //Si falta algo de información, forzamos a que el usario inicie sesión
             if (currentUser == null) return Challenge();           
             
-            var successful = await _todoItemService.AddItemAsync(newItem, currentUser);
+            var successful = await _todoItemService
+                .AddItemAsync(newItem, currentUser);
 
             if (!successful)
             {
@@ -78,7 +80,8 @@ namespace ASPDotNetCoreTodo.Controllers
             //Si falta algo de información, forzamos a que el usario inicie sesión
             if (currentUser == null) return Challenge();          
 
-            var successful = await _todoItemService.MarkDoneAsync(id, currentUser);
+            var successful = await _todoItemService
+                .MarkDoneAsync(id, currentUser);
 
             if (!successful)
             {
