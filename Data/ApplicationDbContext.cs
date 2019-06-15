@@ -7,8 +7,9 @@ using ASPDotNetCoreTodo.Models;
 
 namespace ASPDotNetCoreTodo.Data
 {
-    //public class ApplicationDbContext : IdentityDbContext
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    // Lo que habia antes
+    //public class ApplicationDbContext : IdentityDbContext 
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser> // --> modificación
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
