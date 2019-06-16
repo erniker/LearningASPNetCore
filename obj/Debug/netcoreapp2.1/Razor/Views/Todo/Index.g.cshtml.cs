@@ -89,7 +89,7 @@ using Humanizer;
             WriteLiteral("        <tr>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(509, 204, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "432d607c7ae04bc9856b1dcb1c1620c5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "432ac51a4be4405e860b41c85e05ec5d", async() => {
                 BeginContext(551, 119, true);
                 WriteLiteral("\r\n                    <input type=\"checkbox\" class=\"done-checkbox\">\r\n                    <input type=\"hidden\" name=\"id\"");
                 EndContext();

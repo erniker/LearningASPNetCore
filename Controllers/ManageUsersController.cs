@@ -12,7 +12,6 @@ namespace ASPDotNetCoreTodo.Controllers
     //La configuración de la propiedad Roles en el atributo
     //[Authorize] garantizará que el usuario tenga que iniciar sesión y se le
     //asigne el rol de Administrador para poder ver la página.
-    
     [Authorize(Roles = Constants.AdministratorRole)]
     public class ManageUsersController : Controller
     {
@@ -25,7 +24,7 @@ namespace ASPDotNetCoreTodo.Controllers
         public async Task<IActionResult> Index()
         {
             var admins = (await _userManager
-                .GetUsersInRoleAsync("Administrator"))
+                .GetUsersInRoleAsync(Constants.AdministratorRole))
                 .ToArray();
 
             var everyone = await _userManager.Users

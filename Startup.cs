@@ -32,23 +32,14 @@ namespace ASPDotNetCoreTodo
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
-            //  services.AddIdentity<ApplicationUser, IdentityRole>()
+            // services.AddIdentity<ApplicationUser,IdentityRole>()
             //      .AddEntityFrameworkStores<ApplicationDbContext>()
             //      .AddDefaultTokenProviders();
             
             services.AddDefaultIdentity<ApplicationUser>()
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
-                    .AddDefaultTokenProviders()
-                    ;
-
-
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+                    .AddDefaultTokenProviders();
 
             //Añadimos servicio de aplicaciones
             services.AddScoped<ITodoItemService, TodoItemService>();
@@ -56,6 +47,13 @@ namespace ASPDotNetCoreTodo
             services.AddAuthentication(); 
 
             services.AddMvc();
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -64,3 +64,4 @@ d:\ASPNetCore\ASPDotNetCoreTodo\ASPDotNetCoreTodo\obj\Debug\netcoreapp2.1\ASPDot
 D:\ASPNetCore\ASPDotNetCoreTodo\ASPDotNetCoreTodo\obj\Debug\netcoreapp2.1\ASPDotNetCoreTodo.csproj.CopyComplete
 d:\ASPNetCore\ASPDotNetCoreTodo\ASPDotNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\Todo\AddItemPartial.g.cshtml.cs
 d:\ASPNetCore\ASPDotNetCoreTodo\ASPDotNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\ManageUsers\Index.g.cshtml.cs
+d:\ASPNetCore\ASPDotNetCoreTodo\ASPDotNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminActionsPartial.g.cshtml.cs
